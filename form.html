@@ -11,30 +11,37 @@
     <header>
         <img src="images/logo-svg.svg" alt="logo"
         width="200" height="200">
-        <h1>CRE8TVTY</h1>
+        <audio controls autoplay loop>
+            <source src="music/sodden-mountaineer-main-version-01-25-12196.mp3">
+            Your browser does not support the audio element.
+        </audio>
         <nav>
-            <ul>
-                <li><a href="#index.html">Home</a></li>
-                <li><a href="#secondPage.html">Discovery</a></li>
-                <li><a href="#cr8Page.html">CR8</a></li>
-                <li><a href="#form.html">Contact Us</a></li>
-            </ul>
-        </nav>  
+            <p><a href="#index.html">Home</a></p>
+            <p><a href="#secondPage.html">Discovery</a></p>
+            <p><a href="#cr8Page.html">CR8</a></p>
+            <p><a href="#form.html">Contact Us</a></p>
+        </nav>
+        <h1><strong>CONTACT US</strong></h1>  
     </header>
     <main>
         <h2>Having Trouble?</h2>
         <div class="contact-box">
-            <form action="/contact" method="post">
+            <form action="https://formcarry.com/s/xuZKfRbJ4nd" method="post" enctype="multipart/form-data">
+                <p>
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="What do we call you?">
-                
+                <input type="text" id="name" name="name" placeholder="What do we call you?" rows="5" cols="100">
+                </p>
+                <p>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="How can we reach you?">
-                
+                <input type="email" id="email" name="email" placeholder="How can we reach you?" ros="5" cols="100">
+                </p>
+                <p>
                 <label for="subject">Reason:</label>
-                <textarea id="subject" name="subject" placeholder="How can we help you?"></textarea>
-                
+                <textarea id="subject" name="subject" placeholder="How can we help you?" rows="10" cols="200"></textarea>
+                </p>
+                <p>
                 <button type="submit">CR8</button>
+                </p>
             </form>
         </div>
     </main>

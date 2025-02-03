@@ -11,28 +11,34 @@
     <header>
         <img src="images/logo-svg.svg" alt="logo"
         width="200" height="200">
-        <h1>CRE8TVTY</h1>
+        <audio controls autoplay loop>
+            <source src="music/sodden-mountaineer-main-version-01-25-12196.mp3">
+            Your browser does not support the audio element.
+        </audio>
         <nav>
-            <ul>
-                <li><a href="#index.html">Home</a></li>
-                <li><a href="#secondPage.html">Discovery</a></li>
-                <li><a href="#cr8Page.html">CR8</a></li>
-                <li><a href="#form.html">Contact Us</a></li>
-            </ul>
-        </nav>  
+            <p><a href="#index.html">Home</a></p>
+            <p><a href="#secondPage.html">Discovery</a></p>
+            <p><a href="#cr8Page.html">CR8</a></p>
+            <p><a href="#form.html">Contact Us</a></p>
+        </nav>
+        <h1><strong>LETS CRE8</strong></h1>  
     </header>
     <main>
         <h2>CR8</h2>
         <div class="upload-box">
             <form action="/upload" method="post" enctype="multipart/form-data">
-                <label for="text">Let's Cre8:</label>
-                <textarea id="text" name="text" placeholder="Let's Cre8"></textarea>
                 
                 <label for="music">Upload Your Music:</label>
                 <input type="file" id="music" name="music" accept="audio/*">
                 
                 <label for="photos">Upload Your Art:</label>
                 <input type="file" id="photos" name="photos" accept="image/*" multiple>
+
+                <label for="videos">Show it Off:</label>
+                <input type="file" id="videos" name="videos" accept="video/*">
+                
+                <label for="text">CRE8FULL MIND</label>
+                <textarea id="text" name="text" placeholder="Let's Cre8..." rows="20" cols="150"></textarea>
                 
                 <button type="submit">CR8</button>
             </form>
