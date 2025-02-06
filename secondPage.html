@@ -2,51 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/style3.css">
     <title>CRE8TVTY</title>
+    <link rel="icon" href="images/logo-transparent-png.png" type="image/icon">
     <style>
-     
+        
+
     </style>
   </head>
   <body>
     <header>
-        <img src="images/logo-svg.svg" alt="logo"
-        width="200" height="200">
-        <audio controls autoplay loop>
-            <source src="music/sodden-mountaineer-main-version-01-25-12196.mp3">
-            Your browser does not support the audio element.
-        </audio>
         <nav>
-            <p><a href="#index.html">Home</a></p>
-            <p><a href="#secondPage.html">Discovery</a></p>
-            <p><a href="#cr8Page.html">CR8</a></p>
-            <p><a href="#form.html">Contact Us</a></p>
+            <img src="images/logo-svg.svg" alt="logo"
+            width="150" height="200" style="float: left;">
+            <audio controls autoplay loop style="width: 150px; height: 50px; float: left;">
+                <source src="music/sodden-mountaineer-main-version-01-25-12196.mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="secondPage.html">Discovery</a></li>
+                <li><a href="cr8Page.html">CR8</a></li>
+                <li><a href="form.html">Contact Us</a></li>
+            </ul>
         </nav>
-        <h1><strong>DISCOVER MORE</strong></h1>
-        <form action="https://www.google.com/search" method="get">
-            <input type="search" name="search" placeholder="Search...">
-            <button type="submit">Let's Discover</button>
-        </form>
     </header>
 
     <main>
+        <div class="search-container">
+            <form action="https://www.google.com/search" method="get">
+                <input type="search" name="search" placeholder="Search...">
+                <button type="submit">Let's Discover</button>
+            </form> 
+        </div>
         <div>
-
+            <h1><strong>DISCOVER MORE</strong></h1>
         </div>
         <div>
             <h2><strong><em>EXPLORE OTHER'S FAVORITE ARTIST</em></strong></h2>
-            <ul>
-                <li><button onclick="window.location.href='musicians.html';"></button><em>MUSICIANS</em></li>
-                <li><button onclick="window.location.href='poets.html';"></button><em>POETS</em></li>
-                <li><button onclick="window.location.href='writers.html';"></button><em>WRITERS</em></li>
-                <li><button onclick="window.location.href='artists.html';"></button><em>ARTISTS</em></li>
-                <li><button onclick="window.location.href='photographers.html';"></button><em>PHOTOGRAPHERS</em></li>
-            </ul>
         </div>
-        <div id="Trending" class="tabcontent">
-                <h3>What's Trending</h3>
-                <button class="tablinks" onclick="window.open('https://hellopoetry.com/poems/latest/', '_blank')">Poetry Anyone?</button>
-                <button class="tablinks" onclick="window.open('https://500px.com/discover', '_blank')">Lasting Impressions...</button>
-                <button class="tablinks" onclick="window.open('https://rateyourmusic.com/charts/', '_blank')">Top Songs Today!</button>
+        <div id="tabcontent" class="custom-button">
+            <ul>
+                <li><button class="tablinks" onclick="window.open('https://rateyourmusic.com/charts/', '_blank')"><em><strong>MUSICIANS</strong></em></button></li>
+                <li><button class="tablinks" onclick="window.open('https://hellopoetry.com/poems/latest/', '_blank')"><em><strong>POETS</strong></em></button></li>
+                <li><button class="tablinks" onclick="window.open('https://www.reddit.com/r/writers/', '_blank')"><em><strong>WRITERS</strong></em></button></li>
+                <li><button class="tablinks" onclick="window.open('https://www.deviantart.com/', '_blank')"><em><strong>ARTIST</strong></em></button></li>
+                <li><button class="tablinks" onclick="window.open('https://500px.com/discover', '_blank')"><em><strong>PHOTOGRAPHERS</strong></em></button></li>
+            </ul>
         </div>
     </main>
         <footer>
