@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #008000;
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --nav-background: #111111;
+    --nav-text-color: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+}
+nav {
+    width: 150px;
+    background: var(--nav-background);
+    color: var(--nav-text-color);
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+nav a {
+    color: var(--nav-text-color);
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    transition: color 0.3s ease-in-out;
+}
+nav a:hover {
+    color: var(--primary-color);
+}
+main {
+    margin-left: 270px;
+    padding: 20px;
+    flex: 1;
+}
+
+.container {
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+h1 {
+    color: black;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-top: 10px;
+    width: 100%;
+}
+h1::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background: var(--primary-color);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h2 {
+    margin-top: 40px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: var(--nav-background);
+    color: var(--nav-text-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+.search-container {
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background: var(--nav-background);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 5px;
+}
+.search-input {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .search-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+  
+  .search-button:hover {
+    background-color: #f0f0f0;
+  }
+  .custom-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .custom-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  .custom-button:active {
+    background-color: #3e8e41;
+    transform: translateY(2px);
+  }
+
