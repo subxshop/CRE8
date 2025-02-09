@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/style3.css">
+    <link rel="stylesheet" href="CSS/sustain.css">
     <title>CRE8TVTY</title>
     <link rel="icon" href="images/logo-transparent-png.png" type="image/icon">
     <style>
@@ -11,30 +11,23 @@
     </style>
   </head>
   <body>
-    <header>
-        <nav>
-            <img src="images/logo-svg.svg" alt="logo"
-            width="150" height="200" style="float: left;">
-            <audio controls autoplay loop style="width: 150px; height: 50px; float: left;">
-                <source src="music/sodden-mountaineer-main-version-01-25-12196.mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="secondPage.html">Discovery</a></li>
-                <li><a href="cr8Page.html">CR8</a></li>
-                <li><a href="form.html">Contact Us</a></li>
-            </ul>
-        </nav>  
+    <header role="banner">
+        <h1><strong>LETS CRE8</strong></h1>
+        <img src="images/logo-transparent-png.png" width="42" height="100" alt="logo" id="logo">
     </header>
-    <main>
-        <div>
-            <h1><strong>LETS CRE8</strong></h1>
-        </div>
-        <div>
+    <nav role="navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="secondPage.html">Discovery</a></li>
+            <li><a href="cr8Page.html">CR8</a></li>
+            <li><a href="form.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div id="content-wrapper">
+    <main role="main">
+        <article>
             <h2>CR8</h2>
             <p>Share your music, art, words, and videos with the world!</p>
-        </div>
         <div class="upload-box">
             <form action="secondPage.html" method="post" enctype="multipart/form-data">
                 
@@ -53,7 +46,9 @@
                 <button type="submit">CR8</button>
             </form>
         </div>
+        </article>
     </main>
+    </div>
 
     <footer>
         <h2>Follow for Follow</h2>
