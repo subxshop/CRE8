@@ -1,6 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
+/*Root variables for colors*/
 :root {
     --primary-color: #008000;
     --background-color: #ffffff;
@@ -8,7 +7,7 @@
     --nav-background: #111111;
     --nav-text-color: #ffffff;
 }
-
+/*Body styles*/
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--background-color);
@@ -17,6 +16,7 @@ body {
     display: flex;
     min-height: 100vh;
 }
+/*Navigation bar styles*/
 nav {
     width: 150px;
     background: var(--nav-background);
@@ -26,7 +26,7 @@ nav {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: baseline;
 }
 nav a {
     color: var(--nav-text-color);
@@ -37,15 +37,17 @@ nav a {
     margin: 10px 0;
     transition: color 0.3s ease-in-out;
 }
+/*Navigation bar hover styles*/
 nav a:hover {
     color: var(--primary-color);
 }
+/*Main content section styles*/
 main {
     margin-left: 270px;
     padding: 20px;
     flex: 1;
 }
-
+/*Container for content*/
 .container {
     max-width: 800px;
     background: white;
@@ -54,10 +56,12 @@ main {
     border-radius: 12px;
     margin: 20px;
 }
+/*Remove default list styles*/
 ul {
     list-style-type: none;
     padding: 0;
 }
+/*H1 heading styles */
 h1 {
     color: black;
     font-weight: bold;
@@ -69,6 +73,7 @@ h1 {
     padding-top: 10px;
     width: 100%;
 }
+/*Green boarder for h1 heading*/
 h1::before {
     content: '';
     display: block;
@@ -80,12 +85,14 @@ h1::before {
     left: 50%;
     transform: translateX(-50%);
 }
+/*H2 heading styles */
 h2 {
     margin-top: 40px;
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
 }
+/*Footer styles*/
 footer {
     position: fixed;
     bottom: 10px;
@@ -96,6 +103,7 @@ footer {
     border-radius: 8px;
     font-size: 0.9rem;
 }
+/*Search bar container styles*/
 .search-container {
     position:absolute;
     top: 10px;
@@ -107,26 +115,28 @@ footer {
     border-radius: 5px;
     padding: 5px;
 }
+/*Search input styles*/
 .search-input {
     border: none;
     padding: 5px;
     border-radius: 5px;
     outline: none;
-  }
-  
-  .search-button {
+}
+/*Search button styles*/  
+.search-button {
     border: none;
     background-color: transparent;
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
     margin-left: 5px;
-  }
-  
-  .search-button:hover {
+}
+/*Search button hover styles*/ 
+.search-button:hover {
     background-color: #f0f0f0;
-  }
-  .custom-button {
+}
+/*Custom button styles*/
+.custom-button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -139,15 +149,15 @@ footer {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .custom-button:hover {
+}
+/*Custom button hover styles*/ 
+.custom-button:hover {
     background-color: #45a049;
     transform: translateY(-2px);
-  }
-  
-  .custom-button:active {
+}
+/*Custom button active styles*/ 
+.custom-button:active {
     background-color: #3e8e41;
     transform: translateY(2px);
-  }
+}
 
