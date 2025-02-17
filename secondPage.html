@@ -6,7 +6,28 @@
     <title>CRE8TVTY</title>
     <link rel="icon" href="images/logo-transparent-png.png" type="image/icon">
     <style>
-        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            justify-content: center;
+            margin-top: 20px;
+            align-items: center;
+            flex-direction: column;
+        }
+        .grid-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
 
     </style>
   </head>
@@ -49,9 +70,15 @@
                     <li><button class="tablinks" onclick="window.open('https://500px.com/discover', '_blank')"><em><strong>PHOTOGRAPHERS</strong></em></button></li>
                 </ul>
             </div>
+            <div class="grid-container" id="contentGrid"></div>
+            <script src="JS/script.js"></script>
         </aside>
     </div>
     <footer>
+        <audio controls autoplay loop style="width: 150px; height: 50px; float: baseline;">
+            <source src="music/sodden-mountaineer-main-version-01-25-12196.mp3">
+            Your browser does not support the audio element.
+        </audio>
         <h2>Follow for Follow</h2>
         <p>Stay connected with us on social media!</p>
         <div>
