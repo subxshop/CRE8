@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/sustain.css">
     <title>CRE8TVTY</title>
     <link rel="icon" href="images/logo-transparent-png.png" type="image/icon">
@@ -42,9 +43,42 @@
                 <label for="video-upload" class="upload-label">Show it Off:</label>
                 <input type="file" id="video-upload" name="videos" accept="video/*">
                 
-                <button type="submit">CR8</button>
+                <button onclick="submitPost()">CR8</button>
             </div>
             </form>
+            <script>
+                function submitPost() {
+                    const text = document.getElementById("textInput").value;
+                    const musicFile = document.getElementById("music-upload").files[0];
+                    const imageFiles = document.getElementById("image-upload").files;
+                    const videoFile = document.getElementById("video-upload").files[0];
+        
+                    const formData = new FormData();
+                    formData.append("text", text);
+                    if (musicFile) {
+                        formData.append("music", musicFile);
+                    }
+                    if (imageFiles.length > 0) {
+                        for (let i = 0; i < imageFiles.length; i++) {
+                            formData.append("photos", imageFiles[i]);
+                        }
+                    }
+                    if (videoFile) {
+                        formData.append("videos", videoFile);
+                    }
+
+                    fetch("http://localhost:3000/submit", {
+                        method: "POST",
+                        body: formData
+                    }).then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+                        window.location.href = "secondPage.html"; // Redirect after submission
+                    }).catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            </script>
         </div>
         </article>
     </main>
