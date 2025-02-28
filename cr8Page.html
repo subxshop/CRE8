@@ -32,7 +32,7 @@
         <div class="upload-box" id=".cr8-textbox">
             <h3><em><strong>CRE8FULL MIND</strong></em></h3>
             <textarea class="text-box" id="text" name="file-upload" placeholder="Let's Cre8..." rows="20" cols="150"></textarea>
-            <form action="secondPage.html" method="post" enctype="multipart/form-data">
+            <form id="myForm" action="secondPage.html" method="post" enctype="multipart/form-data">
             <div class=".upload-buttons">    
                 <label for="music-upload" class="upload-label">Upload Your Music:</label>
                 <input type="file" id="music-upload" name="music" accept="audio/*">
@@ -43,7 +43,7 @@
                 <label for="video-upload" class="upload-label">Show it Off:</label>
                 <input type="file" id="video-upload" name="videos" accept="video/*">
                 
-                <button onclick="submitPost()">CR8</button>
+                <button type="button" onclick="submitPost()">CR8</button>
             </div>
             </form>
             <script>
@@ -52,6 +52,7 @@
                     const musicFile = document.getElementById("music-upload").files[0];
                     const imageFiles = document.getElementById("image-upload").files;
                     const videoFile = document.getElementById("video-upload").files[0];
+                    let data = new FormData(document.getElementById("myForm"));
         
                     const formData = new FormData();
                     formData.append("text", text);
@@ -67,13 +68,19 @@
                         formData.append("videos", videoFile);
                     }
 
+                    let params = "?"
+                    for (let [key, value] of data) {
+                        params += key + "=" + value + "&";
+                    }
+                    params = params.slice(0, -1);
+
                     fetch("http://localhost:3000/submit", {
-                        method: "POST",
+                        method: "GET",
                         body: formData
                     }).then(response => response.json())
                     .then(data => {
                         alert(data.message);
-                        window.location.href = "secondPage.html"; // Redirect after submission
+                        window.location.href = "secondPage.html" + params; // Redirect after submission
                     }).catch(error => {
                         console.error('Error:', error);
                     });
