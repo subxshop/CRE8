@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/sustain.css">
     <title>CRE8TVTY</title>
-    <link rel="icon" href="images/logo-transparent-png.png" type="image/icon">
+    <link rel="icon" href="images/logo-transparent-png.webp" type="image/icon">
     <style>
         
      
@@ -14,7 +14,7 @@
   <body>
     <header role="banner">
         <h1><strong>LETS CRE8</strong></h1>
-        <img src="images/logo-transparent-png.png" width="42" height="100" alt="logo" id="logo">
+        <img src="images/logo-transparent-png.webp" width="42" height="100" alt="logo" id="logo">
     </header>
     <nav role="navigation">
         <ul>
@@ -32,7 +32,7 @@
         <div class="upload-box" id=".cr8-textbox">
             <h3><em><strong>CRE8FULL MIND</strong></em></h3>
             <textarea class="text-box" id="text" name="file-upload" placeholder="Let's Cre8..." rows="20" cols="150"></textarea>
-            <form id="myForm" action="secondPage.html" method="post" enctype="multipart/form-data">
+            <form id="myForm" action="secondPage.html" enctype="multipart/form-data">
             <div class=".upload-buttons">    
                 <label for="music-upload" class="upload-label">Upload Your Music:</label>
                 <input type="file" id="music-upload" name="music" accept="audio/*">
@@ -43,46 +43,31 @@
                 <label for="video-upload" class="upload-label">Show it Off:</label>
                 <input type="file" id="video-upload" name="videos" accept="video/*">
                 
-                <button onclick="submitPost()">CR8</button>
+                <button type="submit">CR8</button>
             </div>
             </form>
             <script>
-                function submitPost() {
-                    const text = document.getElementById("textInput").value;
-                    const musicFile = document.getElementById("music-upload").files[0];
-                    const imageFiles = document.getElementById("image-upload").files;
-                    const videoFile = document.getElementById("video-upload").files[0];
-                    let data = new FormData(document.getElementById("myForm"));
-        
-                    const formData = new FormData();
-                    formData.append("text", text);
-                    if (musicFile) {
-                        formData.append("music", musicFile);
-                    }
-                    if (imageFiles.length > 0) {
-                        for (let i = 0; i < imageFiles.length; i++) {
-                            formData.append("photos", imageFiles[i]);
-                        }
-                    }
-                    if (videoFile) {
-                        formData.append("videos", videoFile);
-                    }
+                function submitPost(event) {
+                    event.preventDefault();
+                    const form = document.getElementById("myForm");
+                    const formData = new FormData(form); 
+                    formData.append("text", document.getElementById("text").value);
 
-                    let params = "?"
-                    for (let [key, value] of data) {
-                        params += key + "=" + value + "&";
+                    for (let [key, value] of formData.entries()) {
+                        console.log(`${key}:`, value);
                     }
-                    params = params.slice(0, -1);
-
-                    fetch("http://localhost:3000/submit", {
-                        method: "GET",
+                    fetch("http://192.168.1.25:3000/submit", {
+                        method: "POST",
                         body: formData
-                    }).then(response => response.json())
+                    })
+                    .then(response => response.json())
                     .then(data => {
+                        console.log("Server Response:", data);
                         alert(data.message);
-                        window.location.href = "secondPage.html" + params; // Redirect after submission
-                    }).catch(error => {
-                        console.error('Error:', error);
+                        window.location.href = "secondPage.html";
+                    })
+                    .catch(error => {
+                        console.error("Error submitting post:", error);
                     });
                 }
             </script>
@@ -99,10 +84,10 @@
         <h2>Follow for Follow</h2>
         <p>Stay connected with us on social media!</p>
         <div>
-            <a href="https://www.facebook.com/"><img src="images/Facebook.png" alt="Facebook" width="50" height="50"></a>
-            <a href="https://www.instagram.com/"><img src="images/Instagram.png" alt="Instagram" width="50" height="50"></a>
-            <a href="https://www.tiktok.com/"><img src="images/TikTok.png" alt="TikTok" width="50" height="50"></a>
-            <a href="https://www.twitter.com/"><img src="images/Twitter.png" alt="Twitter" width="50" height="50"></a>
+            <a href="https://www.facebook.com/"><img src="images/Facebook.webp" alt="Facebook" width="50" height="50"></a>
+            <a href="https://www.instagram.com/"><img src="images/Instagram.webp" alt="Instagram" width="50" height="50"></a>
+            <a href="https://www.tiktok.com/"><img src="images/TikTok.webp" alt="TikTok" width="50" height="50"></a>
+            <a href="https://www.twitter.com/"><img src="images/Twitter.webp" alt="Twitter" width="50" height="50"></a>
         </div>
     </footer>
   </body>
