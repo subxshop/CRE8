@@ -7,7 +7,21 @@
     <title>CRE8TVTY</title>
     <link rel="icon" href="images/logo-transparent-png.webp" type="image/icon">
     <style>
-        
+      .upload-box {
+            margin: 10px 0;
+        }
+        .upload-label {
+            display: block;
+            margin: 0px 0 5px;
+        }
+        .upload-buttons {
+            margin-top: 20px;
+        }
+        .text-box {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }  
      
     </style>
   </head>
@@ -24,12 +38,12 @@
             <li><a href="form.html">Contact Us</a></li>
         </ul>
     </nav>
-    <div id="content-wrapper, .cr8-container">
+    <div id="content-wrapper" class="cr8-container">
     <main role="main">
         <article>
             <h2>CR8</h2>
             <p>Share your music, art, words, and videos with the world!</p>
-        <div class="upload-box" id=".cr8-textbox">
+        <div class="upload-box" id="cr8-textbox">
             <h3><em><strong>CRE8FULL MIND</strong></em></h3>
             <textarea class="text-box" id="text" name="file-upload" placeholder="Let's Cre8..." rows="20" cols="150"></textarea>
             <form id="myForm" action="secondPage.html" enctype="multipart/form-data">
@@ -47,6 +61,8 @@
             </div>
             </form>
             <script>
+                document.getElementById("myForm").addEventListener("submit", submitPost);
+
                 function submitPost(event) {
                     event.preventDefault();
                     const form = document.getElementById("myForm");
