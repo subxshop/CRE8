@@ -19,19 +19,21 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post("/submit", upload.single("file"), (req, res) => {
+app.post("/submit", upload.any(), (req, res) => {
     console.log("Incoming POST request to /submit");
-    console.log("Received Text:", req.body.text);
-    console.log("Received File:", req.file ? req.file.filename : "No file uploaded");
+    console.log("Received Body:", req.body);
+    console.log("Received Files:", req.files);
 
-    if (!req.file) {
-        return res.status(400).json({ message: "No file uploaded!" });
+    const text = req.body["file-upload"] || req.body.text || ""; // Ensure correct key
+    console.log("Extracted Text:", text);
+
+    const filePaths = req.files.map(file => `http://192.168.1.25:3000/uploads/${file.filename}`);
+
+    if (!text.trim() && filePaths.length === 0) {
+        return res.status(400).json({ message: "No content provided!" });
     }
 
-    const filePath = `http://localhost:3000/uploads/${req.file.filename}`;
-    console.log("Final Image Path:", filePath);
-
-    const postData = { text: req.body.text, filePath };
+    const postData = { text, filePath: filePaths };
 
     fs.readFile("discovery.json", (err, data) => {
         let posts = [];
@@ -49,11 +51,10 @@ app.post("/submit", upload.single("file"), (req, res) => {
                 console.error("Error writing JSON:", writeErr);
                 return res.status(500).json({ message: "Failed to save post" });
             }
-            res.json({ message: "Post submitted!" });
+            res.json({ message: "Post submitted!", post: postData });
         });
     });
 });
-
 
 app.get("/posts", (req, res) => {
     const discoveryFilePath = "discovery.json";

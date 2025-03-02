@@ -95,27 +95,33 @@
                             const div = document.createElement("div");
                             div.classList.add("grid-item");
 
-                            if (post.text) {
-                                div.innerHTML += `<p>${post.text}</p>`;
-                            }
-
-                            if (post.filePath) {
-                                console.log("Post FilePath:", post.filePath);
-                            if (post.filePath.match(/\.(jpeg|jpg|png|gif|webp)$/)) {
-                                div.innerHTML += `<img src="${post.filePath}" width="200" alt="Uploaded image">`;
-                            } else if (post.filePath.match(/\.(mp3|wav)$/)) {
-                                div.innerHTML += `<audio controls><source src="${post.filePath}" type="audio/mpeg"></audio>`;
-                            } else if (post.filePath.match(/\.(mp4|mov|avi)$/)) {
-                                div.innerHTML += `<video width="300" controls><source src="${post.filePath}" type="video/mp4"></video>`;
+                            if (post.text && post.text.trim() !== "") {
+                                const textElement = document.createElement("p");
+                                textElement.textContent = post.text;
+                                div.appendChild(textElement);
                             } else {
-                                div.innerHTML += `<p>Unsupported file format</p>`;
+                                div.innerHTML += `<p><em>No text provided</em></p>`;
                             }
-                        }
 
-                        gridContainer.appendChild(div);
-                    });
-                })
-                .catch(error => console.error('Error fetching posts:', error));
+                            if (post.filePath && Array.isArray(post.filePath)) {
+                                post.filePath.forEach(file => {
+                                    console.log("Post FilePath:", file);
+                                    if (file.match(/\.(jpeg|jpg|png|gif|webp)$/)) {
+                                        div.innerHTML += `<img src="${file}" width="200" alt="Uploaded image">`;
+                                    } else if (file.match(/\.(mp3|wav)$/)) {
+                                        div.innerHTML += `<audio controls><source src="${file}" type="audio/mpeg"></audio>`;
+                                    } else if (file.match(/\.(mp4|mov|avi)$/)) {
+                                        div.innerHTML += `<video width="300" controls><source src="${file}" type="video/mp4"></video>`;
+                                    } else {
+                                        div.innerHTML += `<p>Unsupported file format</p>`;
+                                    }
+                                });
+                            }
+
+                            gridContainer.appendChild(div);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching posts:', error));
             </script>
         </aside>
     </div>
